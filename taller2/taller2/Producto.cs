@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace taller2
 {
-    internal class Producto
+    public class Producto
     {
     }
 }
