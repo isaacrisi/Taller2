@@ -6,34 +6,45 @@ using System.Threading.Tasks;
 
 namespace Facturator {
     class Producto {
-        private string nombre;
-        private int tamano;
-        private float precio;
-        private float peso;
-        private int cantidad;
+        public static List<Producto> inventario = new List<Producto>();
 
-        public string Nombre { get => nombre; set => nombre = value; }
-        public int Tamano { get => tamano; set => tamano = value; }
-        public float Precio { get => precio; set => precio = value; }
-        public float Peso { get => peso; set => peso = value; }
-        public int Cantidad { get => cantidad; set => cantidad = value; }
+        public string Nombre { get; set; }
+        public float Precio { get; set; }
+        public int Cantidad { get; set; }
 
-        public Producto() 
+        public Producto(string nombre, float precio, int cantidad)
         {
-
+            Nombre = nombre;
+            Precio = precio;
+            Cantidad = cantidad;
         }
 
-        public Producto(string nombre, float precio)
+        public static void AgregarProducto(Caja caja, Producto producto)
         {
-            this.nombre = nombre;
-            this.precio = precio;
+            inventario.Add(producto);
+            caja.Inventario.Add(producto);
         }
 
-        public Producto(string nombre, float precio, int cantidad) 
+
+
+        public static void EliminarProducto(Producto producto)
         {
-            this.nombre = nombre;
-            this.cantidad = cantidad;
-            this.precio = precio;
+            inventario.Remove(producto);
+        }
+
+        public static void EditarProducto(Producto producto, string nuevoNombre, float nuevoPrecio)
+        {
+            producto.Nombre = nuevoNombre;
+            producto.Precio = nuevoPrecio;
+        }
+
+        public static void MostrarInventario()
+        {
+            Console.WriteLine("Inventario de productos:");
+            foreach (var producto in inventario)
+            {
+                Console.WriteLine($"- {producto.Nombre} (${producto.Precio}) - Cantidad: {producto.Cantidad}");
+            }
         }
     }
 }

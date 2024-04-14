@@ -13,9 +13,9 @@ namespace Facturator {
             caja.Facturas = temp.cargarFacturas();
 
             //caja.ImprimirFactura(7);¨
-            Producto hamburguesa = new Producto("Hamburguesa", 5.99f);
-            Producto espagueti = new Producto("Espagueti", 8.99f);
-            Producto lasagna = new Producto("Lasagna", 10.99f);
+            Producto hamburguesa = new Producto("Hamburguesa", 5.99f, 20);
+            Producto espagueti = new Producto("Espagueti", 8.99f, 20);
+            Producto lasagna = new Producto("Lasagna", 10.99f, 20);
             caja.AgregarProducto(hamburguesa);
             caja.AgregarProducto(espagueti);
             caja.AgregarProducto(lasagna);
