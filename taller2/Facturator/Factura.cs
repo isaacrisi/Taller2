@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,14 +15,21 @@ namespace Facturator {
         private Producto[] canasta;
         private int indice;        
         private int numero_factura;
+        private List<Producto> Productos { get; set; }
 
-        public Factura() {
-            
+
+        public Factura() 
+        {
+            Productos = new List<Producto>();
         }
 
         public Factura(int cantidad_productos)
         {
-            canasta = new Producto[cantidad_productos];
+            canasta = new Producto[cantidad_productos];           
+        }
+        public Factura(List<Producto> productos)
+        {
+            Productos = productos;
         }
 
         public Factura(string fecha, int estado_actual, string medio_pago, float iva, float total) {
@@ -129,6 +137,31 @@ namespace Facturator {
 
             return subtotal;
         }
+        public void ExportarCSV(string nombreArchivo)
+        {
+            try
+            {
+                using (StreamWriter writer = new StreamWriter(nombreArchivo))
+                {
+                    // Escribir el encabezado del archivo CSV
+                    writer.WriteLine("Nombre Producto,Precio,Cantidad,Total");
+
+                    // Escribir cada producto de la factura en el archivo CSV
+                    foreach (var producto in Productos)
+                    {
+                        string linea = $"{producto.Nombre},{producto.Precio},{producto.Cantidad},{producto.Precio * producto.Cantidad}";
+                        writer.WriteLine(linea);
+                    }
+                }
+
+                Console.WriteLine("Factura exportada exitosamente como archivo CSV.");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error al exportar la factura como archivo CSV: {ex.Message}");
+            }
+        }
+
 
         public string Fecha { get => fecha; set => fecha = value; }
         public int Estado_actual { get => estado_actual; set => estado_actual = value; }

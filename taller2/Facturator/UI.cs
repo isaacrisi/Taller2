@@ -10,6 +10,7 @@ namespace Facturator
     {
 
         public static Caja caja;
+         
 
         public static void BuscarFactura()
         {
@@ -39,9 +40,8 @@ namespace Facturator
             Console.WriteLine("  |                          Ingrese una opción así:                          |");
             Console.WriteLine("  |                           1. Realizar venta                               |");
             Console.WriteLine("  |                           2. Operaciones con productos                    |");// TODO:crud busqueda
-            Console.WriteLine("  |                           3. Imprimir inventario                          |");
-            Console.WriteLine("  |                           4. Buscar Factura                               |");
-            Console.WriteLine("  |                           5. Exportar factura                             |");//Imprimir en PDF, csv, html
+            Console.WriteLine("  |                           3. Buscar Factura                               |");
+            Console.WriteLine("  |                           4. Exportar factura                             |");//Imprimir en PDF, csv, html
             Console.WriteLine("  |                          -1. Salir                                        |");
             Console.WriteLine("  |                                                                           |");
             Console.WriteLine("  +---------------------------------------------------------------------------+");
@@ -77,6 +77,7 @@ namespace Facturator
         {
             int opc = 0;
             UI.caja = caja;
+            Factura factura = new Factura();
             //TODO: Personalizar el menu ascii            
             do
             {
@@ -93,13 +94,10 @@ namespace Facturator
                             MostrarMenuInventario(caja);
                             break;
                         case 3:
-                            // Otras opciones del menú
-                            break;
-                        case 4:
                             BuscarFactura();
                             break;
-                        case 5:
-                            // Otras opciones del menú
+                        case 4:
+                            factura.ExportarCSV("factura.csv");
                             break;
                         case -1:
                             Console.WriteLine("Saliendo del programa...");
@@ -195,10 +193,10 @@ namespace Facturator
                                 Console.WriteLine("¡Producto no encontrado!");
                             }
                             break;
-
                         case 4:
-                            Producto.MostrarInventario();
+                            Producto.MostrarInventario(caja);
                             break;
+
                         case -1:
                             Console.WriteLine("Volviendo al menú principal...");
                             break;

@@ -38,10 +38,10 @@ namespace Facturator {
             producto.Precio = nuevoPrecio;
         }
 
-        public static void MostrarInventario()
+        public static void MostrarInventario(Caja caja)
         {
             Console.WriteLine("Inventario de productos:");
-            foreach (var producto in inventario)
+            foreach (var producto in caja.Inventario)
             {
                 Console.WriteLine($"- {producto.Nombre} (${producto.Precio}) - Cantidad: {producto.Cantidad}");
             }
