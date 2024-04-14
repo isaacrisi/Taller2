@@ -1,0 +1,15 @@
+@startuml
+class Utilitario {
+    + {static} CARACTER_ESPACIO : string = " "
+    + {static} ConvertirFlotante(temp:string) : float
+    + {static} ConvertirEntero(temp:string) : int
+    + {static} SepararCadena(cadena:string, separador:char) : string[]
+    + {static} ImprimirEspacios(total:int) : void
+    + {static} ImprimirEspacios(cadena:string, total:int, posicion:bool) : string
+    + {static} ImprimirEspaciosInicio(cadena:string, total:int) : string
+    + {static} ImprimirEspaciosFin(cadena:string, total:int) : string
+    + {static} ImprimirSeparador(caracter:char, total:int) : void
+    + {static} FomatearDigito(digitos:string) : string
+    + {static} TruncarTexto(cadena:string, total_caracteres:int) : string
+}
+@enduml

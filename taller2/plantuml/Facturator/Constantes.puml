@@ -1,0 +1,11 @@
+@startuml
+class Constantes {
+    + <<const>> NOMBRE_NEGOCIO : string = "Funny Bussiness"
+    + <<const>> ERROR_AL_BUSCAR_FACTURA : string = "El id de la fatura no existe"
+    + <<const>> ANCHO_TIRILLA : int = 32
+    + <<const>> CANTIDAD_CARACTERES_NOMBRE_PRODUCTO : int = 12
+    + <<const>> CANTIDAD_CARACTERES_PRECIO_UNITARIO : int = 5
+    + <<const>> CANTIDAD_CARACTERES_PRECIO_SUBTOTAL : int = 10
+    + <<const>> IMPUESTO : float = .19F
+}
+@enduml

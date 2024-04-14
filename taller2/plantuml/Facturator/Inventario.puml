@@ -1,0 +1,7 @@
+@startuml
+class Inventario {
+    + Inventario()
+    + AgregarProducto(producto:Producto) : void
+    + AgregarProducto(nombre:string, precio:float, cantidad:int) : void
+}
+@enduml

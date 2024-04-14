@@ -1,0 +1,12 @@
+@startuml
+class Producto {
+    + Nombre : string <<get>> <<set>>
+    + Tamano : int <<get>> <<set>>
+    + Precio : float <<get>> <<set>>
+    + Peso : float <<get>> <<set>>
+    + Cantidad : int <<get>> <<set>>
+    + Producto()
+    + Producto(nombre:string, precio:float)
+    + Producto(nombre:string, precio:float, cantidad:int)
+}
+@enduml

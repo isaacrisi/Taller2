@@ -1,0 +1,8 @@
+@startuml
+class UI {
+    + {static} BuscarFactura() : void
+    + {static} PintarCabezoteMenu() : void
+    + {static} Menu(caja:Caja) : int
+}
+UI --> "caja" Caja
+@enduml

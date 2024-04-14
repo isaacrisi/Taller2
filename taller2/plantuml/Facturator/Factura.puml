@@ -1,0 +1,22 @@
+@startuml
+class Factura {
+    + Factura()
+    + Factura(cantidad_productos:int)
+    + Factura(fecha:string, estado_actual:int, medio_pago:string, iva:float, total:float)
+    + MostrarProducto(indice:int) : void
+    + ImprimirCabezote() : void
+    + CalcularImpuesto(subtotal:float) : float
+    + ImprimirPata() : void
+    + ImprimirTirilla() : void
+    + AgregarProducto(producto:Producto) : void
+    + AgregarProducto(nombre:string, precio:float, cantidad:int) : void
+    + AgregarProductos(nombres:string[], precios:string[]) : void
+    + CalcularSubtotal() : float
+    + Fecha : string <<get>> <<set>>
+    + Estado_actual : int <<get>> <<set>>
+    + Medio_pago : string <<get>> <<set>>
+    + Iva : float <<get>> <<set>>
+    + Total : float <<get>> <<set>>
+    + Numero_factura : int <<get>> <<set>>
+}
+@enduml

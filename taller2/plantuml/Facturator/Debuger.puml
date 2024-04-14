@@ -1,0 +1,6 @@
+@startuml
+class Debug {
+    + {static} activar_debug : bool
+    + {static} Log(linea:string) : void
+}
+@enduml

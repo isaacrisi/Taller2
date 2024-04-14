@@ -1,0 +1,12 @@
+@startuml
+!include .\\Facturator\Caja.puml
+!include .\\Facturator\Constantes.puml
+!include .\\Facturator\Debuger.puml
+!include .\\Facturator\Factura.puml
+!include .\\Facturator\Inventario.puml
+!include .\\Facturator\LectorArchivo.puml
+!include .\\Facturator\Producto.puml
+!include .\\Facturator\Program.puml
+!include .\\Facturator\UI.puml
+!include .\\Facturator\Utilitario.puml
+@enduml

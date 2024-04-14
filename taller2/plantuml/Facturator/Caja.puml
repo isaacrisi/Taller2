@@ -1,0 +1,6 @@
+@startuml
+class Caja {
+    + Caja()
+    + ImprimirFactura(id_factura:int) : void
+}
+@enduml

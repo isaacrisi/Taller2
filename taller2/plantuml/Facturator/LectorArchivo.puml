@@ -1,0 +1,11 @@
+@startuml
+class LectorArchivo {
+    + <<const>> SEPARADOR_NOMBRES : char = '-'
+    + <<const>> SEPARADOR_PRECIOS : char = '#'
+    + <<const>> SEPARADOR_REGISTROS : char = ';'
+    + <<const>> SEPARADOR_CANTIDAD : char = 'C'
+    + cargarFacturas() : Factura[]
+    + ProcesarLineas(lineas:string[]) : Factura[]
+    + ProcesarRegistro(registro:string, separador:char) : string[]
+}
+@enduml
