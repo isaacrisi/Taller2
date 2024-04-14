@@ -37,7 +37,7 @@ namespace Facturator
             Console.WriteLine("  |                                                                           |");
             Console.WriteLine("  |                                                                           |");
             Console.WriteLine("  |                          Ingrese una opción así:                          |");
-            Console.WriteLine("  |                           1. Escoger productos                            |");
+            Console.WriteLine("  |                           1. Realizar venta                               |");
             Console.WriteLine("  |                           2. Operaciones con productos                    |");// TODO:crud busqueda
             Console.WriteLine("  |                           3. Imprimir inventario                          |");
             Console.WriteLine("  |                           4. Buscar Factura                               |");
@@ -98,11 +98,17 @@ namespace Facturator
 
         public static void MostrarProductos(Caja caja)
         {
+            Console.WriteLine("Productos disponibles:");
+            Console.WriteLine("+----------------------+");
+            Console.WriteLine("| Nombre       | Precio|");
+            Console.WriteLine("+----------------------+");
             foreach (Producto producto in caja.Inventario)
             {
-                Console.WriteLine($"- {producto.Nombre} (${producto.Precio})");
+                Console.WriteLine($"| {producto.Nombre,-12} | ${producto.Precio,5} |");
             }
+            Console.WriteLine("+----------------------+");
         }
+
 
     }
 }

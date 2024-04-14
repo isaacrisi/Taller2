@@ -26,3 +26,10 @@ C:\Users\USER\Documents\Taller dops intento\facturator\Facturator\obj\Debug\Fact
 C:\Users\USER\Documents\Taller dops intento\facturator\Facturator\bin\Debug\Facturator.exe.config
 C:\Users\USER\Documents\Taller dops intento\facturator\Facturator\bin\Debug\Facturator.exe
 C:\Users\USER\Documents\Taller dops intento\facturator\Facturator\bin\Debug\Facturator.pdb
+C:\Users\USER\Documents\Taller2\taller2\Facturator\bin\Debug\Facturator.exe.config
+C:\Users\USER\Documents\Taller2\taller2\Facturator\bin\Debug\Facturator.exe
+C:\Users\USER\Documents\Taller2\taller2\Facturator\bin\Debug\Facturator.pdb
+C:\Users\USER\Documents\Taller2\taller2\Facturator\obj\Debug\Facturator.csproj.AssemblyReference.cache
+C:\Users\USER\Documents\Taller2\taller2\Facturator\obj\Debug\Facturator.csproj.CoreCompileInputs.cache
+C:\Users\USER\Documents\Taller2\taller2\Facturator\obj\Debug\Facturator.exe
+C:\Users\USER\Documents\Taller2\taller2\Facturator\obj\Debug\Facturator.pdb

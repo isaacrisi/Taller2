@@ -44,6 +44,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="InputValidator.cs" />
     <Compile Include="UI.cs" />
     <Compile Include="Factura.cs" />
     <Compile Include="LectorArchivo.cs" />
