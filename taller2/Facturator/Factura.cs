@@ -16,11 +16,14 @@ namespace Facturator {
         private int indice;        
         private int numero_factura;
         private List<Producto> Productos { get; set; }
-
+        public List<Producto> Canasta { get; set; }
+        public int Id { get; set; }
+        
 
         public Factura() 
         {
             Productos = new List<Producto>();
+            Canasta = new List<Producto>();
         }
 
         public Factura(int cantidad_productos)
@@ -31,6 +34,7 @@ namespace Facturator {
         {
             Productos = productos;
         }
+
 
         public Factura(string fecha, int estado_actual, string medio_pago, float iva, float total) {
             this.fecha = fecha;
