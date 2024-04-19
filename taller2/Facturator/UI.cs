@@ -10,6 +10,7 @@ namespace Facturator
     {
 
         public static Caja caja;
+        public static Mesa mesa;
 
 
         public static void BuscarFactura()
@@ -42,6 +43,7 @@ namespace Facturator
             Console.WriteLine("  |                           2. Operaciones con productos                    |");// TODO:crud busqueda
             Console.WriteLine("  |                           3. Buscar Factura                               |");
             Console.WriteLine("  |                           4. Exportar factura                             |");//Imprimir en PDF, csv, html
+            Console.WriteLine("  |                           5. Gestionar Mesa_F                             |");
             Console.WriteLine("  |                          -1. Salir                                        |");
             Console.WriteLine("  |                                                                           |");
             Console.WriteLine("  +---------------------------------------------------------------------------+");
@@ -78,7 +80,9 @@ namespace Facturator
             int opc = 0;
             UI.caja = caja;
             Factura factura = new Factura();
-            //TODO: Personalizar el menu ascii            
+            //TODO: Personalizar el menu ascii
+            mesa = new Mesa(1, "Libre");
+            mesa = new Mesa(2, "ocupada");
             do
             {
                 PintarCabezoteMenu();
@@ -98,6 +102,9 @@ namespace Facturator
                             break;
                         case 4:
                             factura.ExportarCSV("factura.csv");
+                            break; 
+                        case 5:
+                            //MenuMesa(mesa);
                             break;
                         case -1:
                             Console.WriteLine("Saliendo del programa...");
@@ -212,7 +219,7 @@ namespace Facturator
 
             } while (opcion != -1);
         }
-        public static Mesa ManejarMesa(int numeroMesa)
+        /*public static Mesa ManejarMesa(int numeroMesa)
         {
             // Lógica para obtener la mesa seleccionada de acuerdo al número
 
@@ -253,16 +260,16 @@ namespace Facturator
             switch (opcionMesa)
             {
                 case 1:
-                    AgregarProductoMesa(mesa);
+                    //AgregarProductoMesa(mesa);
                     break;
                 case 2:
-                    EliminarProductoMesa(mesa);
+                    //EliminarProductoMesa(mesa);
                     break;
                 case 3:
-                    EditarProductoMesa(mesa);
+                    //EditarProductoMesa(mesa);
                     break;
                 case 4:
-                    GenerarFacturaMesa(mesa);
+                    //GenerarFacturaMesa(mesa);
                     break;
                 case -1:
                     Console.WriteLine("Volviendo al Menú Principal...");
@@ -272,6 +279,7 @@ namespace Facturator
                     break;
             }
         }
+        */
 
         
 

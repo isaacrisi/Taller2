@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 
 namespace Facturator {
     class Factura {
@@ -149,6 +151,7 @@ namespace Facturator {
                 {
                     // Escribir el encabezado del archivo CSV
                     writer.WriteLine("Nombre Producto,Precio,Cantidad,Total");
+                    
 
                     // Escribir cada producto de la factura en el archivo CSV
                     foreach (var producto in Productos)
@@ -165,6 +168,7 @@ namespace Facturator {
                 Console.WriteLine($"Error al exportar la factura como archivo CSV: {ex.Message}");
             }
         }
+
 
 
         public string Fecha { get => fecha; set => fecha = value; }
