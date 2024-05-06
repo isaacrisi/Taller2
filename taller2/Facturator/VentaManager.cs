@@ -1,6 +1,5 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,7 +9,7 @@ namespace Facturator
 {
     internal class VentaManager
     {
-        private static List<Factura> ventas = new List<Factura>();
+
         public static void RealizarVenta(Caja caja)
         {
             Console.Clear();
@@ -18,15 +17,9 @@ namespace Facturator
             List<Producto> productosSeleccionados = EscogerProductos(caja);
             float total = CalcularTotal(productosSeleccionados);
             Console.WriteLine($"El total a pagar es: ${total}");
-            Factura nuevaFactura = new Factura();
-            foreach (Producto producto in caja.Inventario)
-            {
-                if (producto.Cantidad > 0)
-                {
-                    nuevaFactura.AgregarProducto(producto.Nombre, producto.Precio, producto.Cantidad);
-                }
-            }
-            ventas.Add(nuevaFactura);
+            Factura factura = new Factura();
+            factura.Productos1 = productosSeleccionados;
+
         }
 
         public static List<Producto> EscogerProductos(Caja caja)
@@ -72,18 +65,38 @@ namespace Facturator
         public static float CalcularTotal(List<Producto> productos)
         {
             float total = 0;
+
+            // Imprimir encabezado de la factura
+            Factura factura = new Factura();
+            factura.ImprimirCabezote();
+            Utilitario.ImprimirSeparador('_', Constantes.ANCHO_TIRILLA);
+            Console.WriteLine("Producto     Precio     Cantidad");
+            Utilitario.ImprimirSeparador('-', Constantes.ANCHO_TIRILLA);
+
+            // Iterar sobre cada producto en la lista
             foreach (var producto in productos)
             {
-                total += producto.Precio * producto.Cantidad;
+                // Calcular el subtotal del producto
+                float subtotalProducto = producto.Precio * producto.Cantidad;
+
+                // Imprimir el nombre, precio y cantidad del producto
+                Console.WriteLine($"{producto.Nombre,-15} ${producto.Precio,-10} {producto.Cantidad,-10}");
+
+                // Sumar al total el subtotal del producto
+                total += subtotalProducto;
             }
+
+
+            Utilitario.ImprimirSeparador('-', Constantes.ANCHO_TIRILLA);
+
+
+            Console.WriteLine($"TOTAL: ${total}");
+
+
+            Utilitario.ImprimirSeparador('*', Constantes.ANCHO_TIRILLA);
+
             return total;
         }
 
-
-        
     }
 }
-
-
-
-
