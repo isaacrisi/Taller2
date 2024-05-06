@@ -1,44 +1,41 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
-using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Xml.Linq;
 
-namespace Facturator {
-    class Factura {
+namespace Facturator
+{
+    class Factura
+    {
         private string fecha;
         private int estado_actual;
         private string medio_pago;
         private float iva;
         private float total;
         private Producto[] canasta;
-        private int indice;        
+        private int indice;
         private int numero_factura;
-        private List<Producto> Productos { get; set; }
-        public List<Producto> Canasta { get; set; }
-        public int Id { get; set; }
-        
+        private List<Producto> Productos;
 
-        public Factura() 
+
+        public Factura()
         {
-            Productos = new List<Producto>();
-            Canasta = new List<Producto>();
+            Productos1 = new List<Producto>();
         }
 
         public Factura(int cantidad_productos)
         {
-            canasta = new Producto[cantidad_productos];           
+            Canasta = new Producto[cantidad_productos];
         }
         public Factura(List<Producto> productos)
         {
-            Productos = productos;
+            Productos1 = productos;
         }
 
-
-        public Factura(string fecha, int estado_actual, string medio_pago, float iva, float total) {
+        public Factura(string fecha, int estado_actual, string medio_pago, float iva, float total)
+        {
             this.fecha = fecha;
             this.estado_actual = estado_actual;
             this.medio_pago = medio_pago;
@@ -48,27 +45,27 @@ namespace Facturator {
 
         public void MostrarProducto(int indice)
         {
-            int cantidad = canasta[indice].Cantidad;
+            int cantidad = Canasta[indice].Cantidad;
             Console.Write(Utilitario.FomatearDigito(cantidad.ToString()));//Se hace de esta forma, para que la función de convertir digitos sea versátil
             Utilitario.ImprimirEspacios(1);
-            Console.Write(Utilitario.ImprimirEspaciosFin(canasta[indice].Nombre,Constantes.CANTIDAD_CARACTERES_NOMBRE_PRODUCTO));
+            Console.Write(Utilitario.ImprimirEspaciosFin(Canasta[indice].Nombre, Constantes.CANTIDAD_CARACTERES_NOMBRE_PRODUCTO));
             Utilitario.ImprimirEspacios(1);
-            Console.Write(Utilitario.ImprimirEspaciosInicio(canasta[indice].Precio.ToString(), Constantes.CANTIDAD_CARACTERES_PRECIO_UNITARIO));
+            Console.Write(Utilitario.ImprimirEspaciosInicio(Canasta[indice].Precio.ToString(), Constantes.CANTIDAD_CARACTERES_PRECIO_UNITARIO));
             Utilitario.ImprimirEspacios(1);
-            Console.WriteLine(Utilitario.ImprimirEspaciosInicio((canasta[indice].Precio*cantidad).ToString(),Constantes.CANTIDAD_CARACTERES_PRECIO_SUBTOTAL));
+            Console.WriteLine(Utilitario.ImprimirEspaciosInicio((Canasta[indice].Precio * cantidad).ToString(), Constantes.CANTIDAD_CARACTERES_PRECIO_SUBTOTAL));
 
         }
 
         public void ImprimirCabezote()
         {
-            Utilitario.ImprimirSeparador('*',Constantes.ANCHO_TIRILLA);
+            Utilitario.ImprimirSeparador('*', Constantes.ANCHO_TIRILLA);
             Utilitario.CentrarPalabra(Constantes.NOMBRE_NEGOCIO, Constantes.ANCHO_TIRILLA);
-            Utilitario.CentrarPalabra("#"+numero_factura,Constantes.ANCHO_TIRILLA);
+            Utilitario.CentrarPalabra("#" + numero_factura, Constantes.ANCHO_TIRILLA);
             Utilitario.ImprimirSeparador('*', Constantes.ANCHO_TIRILLA);
         }
 
         public float CalcularImpuesto(float subtotal)
-        {             
+        {
             return subtotal * Constantes.IMPUESTO;
         }
 
@@ -87,7 +84,7 @@ namespace Facturator {
         public void ImprimirTirilla()
         {
             ImprimirCabezote();
-           
+
             for (int i = 0; i < indice; i++)
             {
                 MostrarProducto(i);
@@ -96,32 +93,33 @@ namespace Facturator {
             ImprimirPata();
         }
 
-        public void AgregarProducto(Producto producto) {
-            
-            if (indice+1 <= canasta.Length)
+        public void AgregarProducto(Producto producto)
+        {
+
+            if (indice + 1 <= Canasta.Length)
             {
-                canasta[indice++] = producto; 
+                Canasta[indice++] = producto;
             }
         }
 
-        public void AgregarProducto(string nombre,float precio, int cantidad)
+        public void AgregarProducto(string nombre, float precio, int cantidad)
         {
             AgregarProducto(new Producto(nombre, precio, cantidad));
         }
 
-        public void AgregarProductos(string[] nombres,string[] precios)
+        public void AgregarProductos(string[] nombres, string[] precios)
         {
             float precio;
             int cantidad;
             string[] precio_cantidad;
 
             for (int i = 0; i < nombres.Length; i++)
-            {                
+            {
                 precio_cantidad = Utilitario.SepararCadena(precios[i], LectorArchivo.SEPARADOR_CANTIDAD);
                 precio = Utilitario.ConvertirFlotante(precio_cantidad[0]);
                 cantidad = Utilitario.ConvertirEntero(precio_cantidad[1]);
 
-                if(precio > 0 && cantidad>0)
+                if (precio > 0 && cantidad > 0)
                 {
                     AgregarProducto(nombres[i], precio, cantidad);
                 }
@@ -136,9 +134,9 @@ namespace Facturator {
         {
             float subtotal = 0;
 
-            for (int i = 0; i < canasta.Length; i++)
+            for (int i = 0; i < Canasta.Length; i++)
             {
-                subtotal += canasta[i].Precio*canasta[i].Cantidad;
+                subtotal += Canasta[i].Precio * Canasta[i].Cantidad;
             }
 
             return subtotal;
@@ -151,10 +149,9 @@ namespace Facturator {
                 {
                     // Escribir el encabezado del archivo CSV
                     writer.WriteLine("Nombre Producto,Precio,Cantidad,Total");
-                    
 
                     // Escribir cada producto de la factura en el archivo CSV
-                    foreach (var producto in Productos)
+                    foreach (var producto in Productos1)
                     {
                         string linea = $"{producto.Nombre},{producto.Precio},{producto.Cantidad},{producto.Precio * producto.Cantidad}";
                         writer.WriteLine(linea);
@@ -170,13 +167,14 @@ namespace Facturator {
         }
 
 
-
         public string Fecha { get => fecha; set => fecha = value; }
         public int Estado_actual { get => estado_actual; set => estado_actual = value; }
         public string Medio_pago { get => medio_pago; set => medio_pago = value; }
         public float Iva { get => iva; set => iva = value; }
         public float Total { get => total; set => total = value; }
         public int Numero_factura { get => numero_factura; set => numero_factura = value; }
+        public Producto[] Canasta { get => canasta; set => canasta = value; }
+        public List<Producto> Productos1 { get => Productos; set => Productos = value; }
     }
 
 }
