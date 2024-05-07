@@ -1,4 +1,4 @@
- # **Papas El Calvo** ࿐࿔ 
+ # **Pasadero El Calvo** ࿐࿔ 
 
 ## _Descripción_  ꒰ᐢ. .ᐢ꒱₊˚⊹
 
