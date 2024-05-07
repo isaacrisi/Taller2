@@ -10,7 +10,6 @@ namespace Facturator
     {
 
         public static Caja caja;
-        public static Mesa mesa;
 
 
         public static void BuscarFactura()
@@ -43,7 +42,6 @@ namespace Facturator
             Console.WriteLine("  |                           2. Operaciones con productos                    |");// TODO:crud busqueda
             Console.WriteLine("  |                           3. Buscar Factura                               |");
             Console.WriteLine("  |                           4. Exportar factura                             |");//Imprimir en PDF, csv, html
-            Console.WriteLine("  |                           5. Gestionar Mesa_F                             |");
             Console.WriteLine("  |                          -1. Salir                                        |");
             Console.WriteLine("  |                                                                           |");
             Console.WriteLine("  +---------------------------------------------------------------------------+");
@@ -80,9 +78,7 @@ namespace Facturator
             int opc = 0;
             UI.caja = caja;
             Factura factura = new Factura();
-            //TODO: Personalizar el menu ascii
-            mesa = new Mesa(1, "Libre");
-            mesa = new Mesa(2, "ocupada");
+            //TODO: Personalizar el menu ascii            
             do
             {
                 PintarCabezoteMenu();
@@ -102,9 +98,6 @@ namespace Facturator
                             break;
                         case 4:
                             factura.ExportarCSV("factura.csv");
-                            break; 
-                        case 5:
-                            //MenuMesa(mesa);
                             break;
                         case -1:
                             Console.WriteLine("Saliendo del programa...");
@@ -219,71 +212,7 @@ namespace Facturator
 
             } while (opcion != -1);
         }
-        /*public static Mesa ManejarMesa(int numeroMesa)
-        {
-            // Lógica para obtener la mesa seleccionada de acuerdo al número
 
-            if (numeroMesa == 1)
-            {
-                return new Mesa(1, "Libre"); // Crear objeto Mesa con número y estado
-            }
-            else if (numeroMesa == 2)
-            {
-                return new Mesa(2, "Ocupada");
-            }
-            // Continuar con el resto de las mesas...
-            else
-            {
-                Console.WriteLine("Número de mesa no válido. Volviendo al menú principal.");
-                return null; // O devolver una mesa predeterminada
-            }
-
-
-        }
-        public static void MenuMesa(Mesa mesa)
-        {
-            // Menú mesa
-            Console.WriteLine($"Mesa {mesa.Numero} - Estado: {mesa.Estado}");
-            Console.WriteLine("1. Agregar Producto");
-            Console.WriteLine("2. Eliminar Producto");
-            Console.WriteLine("3. Editar Producto");
-            Console.WriteLine("4. Generar Factura");
-            Console.WriteLine("-1. Volver al Menú Principal");
-
-            int opcionMesa;
-            do
-            {
-                Console.WriteLine("Ingrese una opción:");
-            } while (!int.TryParse(Console.ReadLine(), out opcionMesa));
-
-            // la monda que no quiero hacer
-            switch (opcionMesa)
-            {
-                case 1:
-                    //AgregarProductoMesa(mesa);
-                    break;
-                case 2:
-                    //EliminarProductoMesa(mesa);
-                    break;
-                case 3:
-                    //EditarProductoMesa(mesa);
-                    break;
-                case 4:
-                    //GenerarFacturaMesa(mesa);
-                    break;
-                case -1:
-                    Console.WriteLine("Volviendo al Menú Principal...");
-                    break;
-                default:
-                    Console.WriteLine("Opción no válida. Por favor, seleccione una opción válida.");
-                    break;
-            }
-        }
-        */
-
-        
-
-    
 
     }
 }

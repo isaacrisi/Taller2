@@ -4,8 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Facturator {
-    class LectorArchivo {
+namespace Facturator
+{
+    class LectorArchivo
+    {
 
         public const char SEPARADOR_NOMBRES = '-';
         public const char SEPARADOR_PRECIOS = '#';
@@ -34,21 +36,22 @@ namespace Facturator {
                 // Display the file contents by using a foreach loop.
                 Debug.Log("Contenido del archivo facturas = ");
                 facturas = ProcesarLineas(lineas);
-                
+
             }
-            catch(NullReferenceException e1)
+            catch (NullReferenceException e1)
             {
                 Console.WriteLine("Error al procesar los items del archivo");
             }
-            catch(Exception e2)
+            catch (Exception e2)
             {
                 //Pendiente personalizar la excepcion
                 Console.WriteLine("Error al leer el archivo, revise que el archivo este cerrado");
             }
             return facturas;
         }
-        
-        public Factura[] ProcesarLineas(string[] lineas) {
+
+        public Factura[] ProcesarLineas(string[] lineas)
+        {
 
             string[] temp;
             string[] nombres, precios;
@@ -62,8 +65,8 @@ namespace Facturator {
                 nombres = ProcesarRegistro(temp[1], SEPARADOR_NOMBRES);
                 precios = ProcesarRegistro(temp[2], SEPARADOR_PRECIOS);
                 Debug.Log(i + " " + nombres.Length);
-                facturas[i] = new Factura(nombres.Length);                
-                facturas[i].AgregarProductos(nombres,precios);
+                facturas[i] = new Factura(nombres.Length);
+                facturas[i].AgregarProductos(nombres, precios);
                 facturas[i].Numero_factura = Utilitario.ConvertirEntero(temp[5]);
                 //temp[3] Medio de pago
                 //temp[4] Estado actual
@@ -71,13 +74,15 @@ namespace Facturator {
             }
             return facturas;
         }
-        
-        public string[] ProcesarRegistro(string registro,char separador) {
-            
+
+        public string[] ProcesarRegistro(string registro, char separador)
+        {
+
             string[] temp = Utilitario.SepararCadena(registro, separador);
             string[] salida = new string[temp.Length];
 
-            for(int i=0;i<temp.Length;i++) {
+            for (int i = 0; i < temp.Length; i++)
+            {
                 salida[i] = temp[i];
             }
 

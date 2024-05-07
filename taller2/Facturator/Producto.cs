@@ -4,8 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Facturator {
-    class Producto {
+namespace Facturator
+{
+    class Producto
+    {
         public static List<Producto> inventario = new List<Producto>();
 
         public string Nombre { get; set; }

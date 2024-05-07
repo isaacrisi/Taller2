@@ -4,13 +4,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Facturator {
-    class Utilitario {
-        public static string CARACTER_ESPACIO = " ";       
+namespace Facturator
+{
+    class Utilitario
+    {
+        public static string CARACTER_ESPACIO = " ";
         public static float ConvertirFlotante(string temp)
         {
             float salida = -1f;//Un valor negativo no es posible para un precio, por tanto sirve para validar
-            if(!float.TryParse(temp,out salida))
+            if (!float.TryParse(temp, out salida))
             {
                 Console.WriteLine("ConvertirFlotante, Error al intentar convertir el dato: " + temp);
             }
@@ -27,7 +29,7 @@ namespace Facturator {
             return salida;
         }
 
-        public static string[] SepararCadena(string cadena,char separador)
+        public static string[] SepararCadena(string cadena, char separador)
         {
             char[] separador_linea = new char[] { separador };
             string[] temp = cadena.Split(separador_linea);
@@ -45,7 +47,7 @@ namespace Facturator {
             Console.Write(ans);
         }
 
-        public static string ImprimirEspacios(string cadena,int total,bool posicion)
+        public static string ImprimirEspacios(string cadena, int total, bool posicion)
         {
             int cantidad = total - cadena.Length;
             string ans = "";
@@ -56,7 +58,7 @@ namespace Facturator {
                 {
                     ans += " ";
                 }
-                ans = (posicion)?cadena + ans: ans + cadena;
+                ans = (posicion) ? cadena + ans : ans + cadena;
             }
             else if (cantidad == 0)
             {
@@ -74,7 +76,7 @@ namespace Facturator {
         {
             int medio = 0;
             int ajuste = 0;
-            if(palabra.Length <= ancho)
+            if (palabra.Length <= ancho)
             {
                 if (palabra.Length < ancho)
                 {
@@ -88,7 +90,7 @@ namespace Facturator {
                 //Pendiente ajustar para que tenga en cuenta el ancho completo, probar otros nombres
                 Utilitario.ImprimirEspacios(medio);
                 Console.Write(palabra);
-                Utilitario.ImprimirEspacios(medio+ ajuste);
+                Utilitario.ImprimirEspacios(medio + ajuste);
             }
             else
             {
@@ -97,17 +99,17 @@ namespace Facturator {
             Console.WriteLine();
         }
 
-        public static string ImprimirEspaciosInicio(string cadena,int total)
+        public static string ImprimirEspaciosInicio(string cadena, int total)
         {
             return ImprimirEspacios(cadena, total, false);
         }
 
-        public static string ImprimirEspaciosFin(string cadena,int total)
-        {                        
-            return ImprimirEspacios(cadena,total,true);
+        public static string ImprimirEspaciosFin(string cadena, int total)
+        {
+            return ImprimirEspacios(cadena, total, true);
         }
 
-        public static void ImprimirSeparador(char caracter,int total)
+        public static void ImprimirSeparador(char caracter, int total)
         {
             string separador = "" + caracter;
             string ans = "";
@@ -120,12 +122,12 @@ namespace Facturator {
 
         public static string FomatearDigito(string digitos)
         {
-            return (ConvertirEntero(digitos)<10)?"0"+digitos:digitos;
+            return (ConvertirEntero(digitos) < 10) ? "0" + digitos : digitos;
         }
 
-        public static string TruncarTexto(string cadena,int total_caracteres)
+        public static string TruncarTexto(string cadena, int total_caracteres)
         {
-            return cadena.Length > total_caracteres ? cadena.Substring(0,total_caracteres-1):cadena;
+            return cadena.Length > total_caracteres ? cadena.Substring(0, total_caracteres - 1) : cadena;
         }
     }
 }

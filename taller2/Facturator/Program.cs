@@ -4,9 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Facturator {
-    class Program {
-        static void Main(string[] args) {
+namespace Facturator
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
 
             Caja caja = new Caja();
             LectorArchivo temp = new LectorArchivo();
@@ -21,7 +24,7 @@ namespace Facturator {
             caja.AgregarProducto(lasagna);
             UI.Menu(caja);
             Console.ReadKey();
-            
+
 
         }
     }
