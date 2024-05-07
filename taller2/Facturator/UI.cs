@@ -24,53 +24,51 @@ namespace Facturator
             Console.ReadKey();
         }
 
+         
         public static void PintarCabezoteMenu()
         {
-            Console.WriteLine("                                    /\\    /\\                                   ");
-            Console.WriteLine("  +--------------------------------(´・(oo)・｀)---------------------------------+");
-            Console.WriteLine("  |  _____   ____     __  ______  __ __  ____    ____  ______   ___   ____    |");
-            Console.WriteLine("  | |     | /    |   /  ]|      ||  |  ||    \\  /    ||      | /   \\ |    \\   |");
-            Console.WriteLine("  | |   __||  o  |  /  / |      ||  |  ||  D  )|  o  ||      +|     |+  D  )  |");
-            Console.WriteLine("  | |  |_  |     | /  /  |_|  |_|+  |  ||    / |     +|_|  |_|+  O  ||    /   |");
-            Console.WriteLine("  | |   _] |  _  |/   \\_   |  |  |  :  ||    \\ |  _  |  |  |  |     ||    \\   |");
-            Console.WriteLine("  | |  |   |  |  |\\     |  |  |  |     ||  .  \\|  |  |  |  |  |     |+  .  \\  |");
-            Console.WriteLine("  | |__|   |__|__| \\____|  |__|   \\__,_||__|\\_||__|__|  |__|   \\___/ |__|\\_|  |");
-            Console.WriteLine("  |                                                                           |");
-            Console.WriteLine("  |                                                                           |");
-            Console.WriteLine("  |                          Ingrese una opción así:                          |");
-            Console.WriteLine("  |                           1. Realizar venta                               |");
-            Console.WriteLine("  |                           2. Operaciones con productos                    |");// TODO:crud busqueda
-            Console.WriteLine("  |                           3. Buscar Factura                               |");
-            Console.WriteLine("  |                           4. Exportar factura                             |");//Imprimir en PDF, csv, html
-            Console.WriteLine("  |                          -1. Salir                                        |");
-            Console.WriteLine("  |                                                                           |");
-            Console.WriteLine("  +---------------------------------------------------------------------------+");
+            Console.WriteLine("                                   ");
+            Console.WriteLine("  >>============(-.-)============<<");
+            Console.WriteLine("  |   _   _       _         _     |");
+            Console.WriteLine("  |  | | | | ___ | | __ _  | |    |");
+            Console.WriteLine("  |  | |_| |/ _ \\| |/ _` | | |    |");
+            Console.WriteLine("  |  |  _  | (_) | | (_| | |_|    |");
+            Console.WriteLine("  |  |_| |_|\\___/|_|\\__,_| (_)    |");
+            Console.WriteLine("  |                               |");
+            Console.WriteLine("  |                               |");
+            Console.WriteLine("  |  Ingrese una opción así:      |");
+            Console.WriteLine("  |  1. Realizar venta            |");
+            Console.WriteLine("  |  2. Operaciones con productos |");// TODO:crud busqueda
+            Console.WriteLine("  |  3. Buscar Factura            |");
+            Console.WriteLine("  |  4. Exportar factura          |");//Imprimir en PDF, csv, html
+            Console.WriteLine("  |  -1. Salir                    |");
+            Console.WriteLine("  |                               |");
+            Console.WriteLine("  +-------------------------------+");
             Console.WriteLine();
             Console.Write("  ->");
         }
         private static void PintarCabezoteMenuInventario()
         {
-            Console.WriteLine("                                    /\\    /\\                                   ");
-            Console.WriteLine("  +--------------------------------(´・(oo)・｀)---------------------------------+");
-            Console.WriteLine("  |  _____   ____     __  ______  __ __  ____    ____  ______   ___   ____    |");
-            Console.WriteLine("  | |     | /    |   /  ]|      ||  |  ||    \\  /    ||      | /   \\ |    \\   |");
-            Console.WriteLine("  | |   __||  o  |  /  / |      ||  |  ||  D  )|  o  ||      +|     |+  D  )  |");
-            Console.WriteLine("  | |  |_  |     | /  /  |_|  |_|+  |  ||    / |     +|_|  |_|+  O  ||    /   |");
-            Console.WriteLine("  | |   _] |  _  |/   \\_   |  |  |  :  ||    \\ |  _  |  |  |  |     ||    \\   |");
-            Console.WriteLine("  | |  |   |  |  |\\     |  |  |  |     ||  .  \\|  |  |  |  |  |     |+  .  \\  |");
-            Console.WriteLine("  | |__|   |__|__| \\____|  |__|   \\__,_||__|\\_||__|__|  |__|   \\___/ |__|\\_|  |");
-            Console.WriteLine("  |                                                                           |");
-            Console.WriteLine("  |                                                                           |");
-            Console.WriteLine("  |                          Ingrese una opción así:                          |");
-            Console.WriteLine("  |                           1. Agregar Producto                             |");
-            Console.WriteLine("  |                           2. Eliminar Producto                            |");// TODO:crud busqueda
-            Console.WriteLine("  |                           3. Editar Producto                              |");
-            Console.WriteLine("  |                           4. Mostrar inventario                           |");
-            Console.WriteLine("  |                          -1. Volver al Menú                               |");
-            Console.WriteLine("  |                                                                           |");
-            Console.WriteLine("  +---------------------------------------------------------------------------+");
+            Console.WriteLine("                                   ");
+            Console.WriteLine("  >>============(-.-)============<<");
+            Console.WriteLine("  |   _   _       _         _     |");
+            Console.WriteLine("  |  | | | | ___ | | __ _  | |    |");
+            Console.WriteLine("  |  | |_| |/ _ \\| |/ _` | | |    |");
+            Console.WriteLine("  |  |  _  | (_) | | (_| | |_|    |");
+            Console.WriteLine("  |  |_| |_|\\___/|_|\\__,_| (_)    |");
+            Console.WriteLine("  |                               |");
+            Console.WriteLine("  |                               |");
+            Console.WriteLine("  |  Ingrese una opción así:      |");
+            Console.WriteLine("  |   1. Agregar Producto         |");
+            Console.WriteLine("  |   2. Eliminar Producto        |");// TODO:crud busqueda
+            Console.WriteLine("  |   3. Editar Producto          |");
+            Console.WriteLine("  |   4. Mostrar inventario       |");
+            Console.WriteLine("  |  -1. Volver al Menú           |");
+            Console.WriteLine("  |                               |");
+            Console.WriteLine("  +-------------------------------+");
             Console.WriteLine();
             Console.Write("  ->");
+
         }
 
         public static int Menu(Caja caja)

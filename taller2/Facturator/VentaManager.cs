@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,6 +11,7 @@ namespace Facturator
     internal class VentaManager
     {
         Mesa mesa1 = new Mesa();
+        Debug debug = new Debug();
 
         public static void RealizarVenta(Caja caja)
         {
@@ -20,6 +22,7 @@ namespace Facturator
             List<Producto> productosSeleccionados = EscogerProductos(caja);
             float total = CalcularTotal(productosSeleccionados, mesa); // Pasar el número de mesa
             Console.WriteLine($"El total a pagar para la Mesa {mesa} es: ${total}");
+            Debug.Momaso();
             Factura factura = new Factura();
             factura.Productos1 = productosSeleccionados;
             Mesa.LiberarMesa(mesa); // Liberar la mesa después de la venta
